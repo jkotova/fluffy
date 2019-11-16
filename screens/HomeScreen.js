@@ -11,7 +11,9 @@ import { gaps, layout } from '../ui/variables';
 export default function HomeScreen() {
   return (
     <Layout style={layout.container}>
-      <HomeTopNavigation />
+      <HomeTopNavigation  
+        title='Reports list' 
+        description='Here you can see all reports that was made by our users' />
       <ReportsList />
     </Layout>
   );

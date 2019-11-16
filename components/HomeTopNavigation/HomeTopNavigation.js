@@ -10,7 +10,7 @@ const OptionsAction = (props) => (
   <TopNavigationAction {...props} icon={OptionsIcon}/>
 );
 
-export default function HomeScreen() {
+export default function HomeScreen(props) {
 
   const renderRightControls = () => [
     <OptionsAction/>,
@@ -18,8 +18,8 @@ export default function HomeScreen() {
 
   return (
       <TopNavigation
-        title='Reports list'
-        subtitle='Here you can see all reports that was made by our users'
+        title={props.title}
+        subtitle={props.description}
         rightControls={renderRightControls()}
       />
   );
