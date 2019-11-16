@@ -21,6 +21,79 @@ let initialState = {
             description: 'Гуляли, увидели грустную пуму в торговом центр "Звездочка"',
             status: 'draft',
             comments: '',
+            categories: ['жестокое обращение', 'пумы', 'москва', 'контактные зоопарки', ],
+            photos: ['https://s1.1zoom.me/b5050/75/170810-aleni_1400x1050.jpg'],
+            anonymous: false,
+            geometry: {
+                address: 'Москва, ул. Таганская 1с1',
+                latitude: 55.741807,
+                longitute: 37.655708
+            }
+        },
+        {
+            id: 1,
+            reportTypeId: 0,
+            userId: 1,
+            time: 1573904730,
+            title: 'Жестокое обращение с животными в контактном зоопарке',
+            description: 'Гуляли, увидели грустную пуму в торговом центр "Звездочка"',
+            status: 'draft',
+            comments: '',
+            categories: ['жестокое обращение', 'пумы', 'москва', 'контактные зоопарки', ],
+            photos: ['https://s1.1zoom.me/b5050/75/170810-aleni_1400x1050.jpg'],
+            anonymous: false,
+            geometry: {
+                address: 'Москва, ул. Таганская 1с1',
+                latitude: 55.741807,
+                longitute: 37.655708
+            }
+        },
+        {
+            id: 2,
+            reportTypeId: 0,
+            userId: 1,
+            time: 1573904730,
+            title: 'Жестокое обращение с животными в контактном зоопарке',
+            description: 'Гуляли, увидели грустную пуму в торговом центр "Звездочка"',
+            status: 'draft',
+            comments: '',
+            categories: ['жестокое обращение', 'пумы', 'москва', 'контактные зоопарки', ],
+            photos: ['https://s1.1zoom.me/b5050/75/170810-aleni_1400x1050.jpg'],
+            anonymous: false,
+            geometry: {
+                address: 'Москва, ул. Таганская 1с1',
+                latitude: 55.741807,
+                longitute: 37.655708
+            }
+        },
+        {
+            id: 3,
+            reportTypeId: 0,
+            userId: 1,
+            time: 1573904730,
+            title: 'Жестокое обращение с животными в контактном зоопарке',
+            description: 'Гуляли, увидели грустную пуму в торговом центр "Звездочка"',
+            status: 'draft',
+            comments: '',
+            categories: ['жестокое обращение', 'пумы', 'москва', 'контактные зоопарки', ],
+            photos: ['https://s1.1zoom.me/b5050/75/170810-aleni_1400x1050.jpg'],
+            anonymous: false,
+            geometry: {
+                address: 'Москва, ул. Таганская 1с1',
+                latitude: 55.741807,
+                longitute: 37.655708
+            }
+        },
+        {
+            id: 4,
+            reportTypeId: 0,
+            userId: 1,
+            time: 1573904730,
+            title: 'Жестокое обращение с животными в контактном зоопарке',
+            description: 'Гуляли, увидели грустную пуму в торговом центр "Звездочка"',
+            status: 'draft',
+            comments: '',
+            categories: ['жестокое обращение', 'пумы', 'москва', 'контактные зоопарки', ],
             photos: ['https://s1.1zoom.me/b5050/75/170810-aleni_1400x1050.jpg'],
             anonymous: false,
             geometry: {

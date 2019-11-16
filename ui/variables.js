@@ -8,6 +8,9 @@ export const colors = {
     primary: '#FF2D55',
     secondary: '#0066FF',
     grey: '#C2C8CD',
+    lightGrey: '#eef4fb',
+    black: '#333333',
+    green: '#379c00'
 
 };
 
@@ -33,3 +36,10 @@ export const gaps = {
     base6x: 48,
     base7x: 56,
 }
+
+export const layout = StyleSheet.create({
+    container: {
+      paddingVertical: gaps.base2x,
+      backgroundColor: '#eef4fb'
+    }
+  });
