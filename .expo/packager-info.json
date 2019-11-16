@@ -1,9 +1,9 @@
 {
-  "devToolsPort": 19003,
+  "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 21713,
-  "expoServerNgrokUrl": "https://uz-8hr.kalipsik.fluffy.exp.direct",
-  "packagerNgrokUrl": "https://packager.uz-8hr.kalipsik.fluffy.exp.direct",
-  "ngrokPid": 21733
+  "packagerPid": 44169,
+  "expoServerNgrokUrl": "https://d7-pva.kalipsik.fluffy.exp.direct",
+  "packagerNgrokUrl": "https://packager.d7-pva.kalipsik.fluffy.exp.direct",
+  "ngrokPid": 44199
 }

@@ -1,15 +1,16 @@
 import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
+import { Icon} from 'react-native-ui-kitten';
 
-import Colors from '../constants/Colors';
+import {colors} from '../ui/variables';
 
 export default function TabBarIcon(props) {
   return (
-    <Ionicons
-      name={props.name}
-      size={26}
-      style={{ marginBottom: -3 }}
-      color={props.focused ? Colors.tabIconSelected : Colors.tabIconDefault}
+    <Icon 
+    width={26}
+    height={26}
+    fill={props.focused ? colors.primary : colors.grey}
+    name={props.name}
     />
   );
 }

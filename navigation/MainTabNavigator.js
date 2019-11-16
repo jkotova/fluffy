@@ -4,8 +4,10 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import FundsListScreen from '../screens/FundsList';
+import AddReportScreen from '../screens/AddReportScreen';
+import MyReportsScreen from '../screens/MyReportsScreen';
+import ProfileScreen from '../screens/Profile';
 import { colors } from '../ui/variables';
 
 
@@ -22,57 +24,100 @@ const HomeStack = createStackNavigator(
 );
 
 HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
+  tabBarLabel: 'Reports List',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
+      name='list'
     />
   ),
 };
 
 HomeStack.path = '';
 
-const LinksStack = createStackNavigator(
+const FundsStack = createStackNavigator(
   {
-    Links: LinksScreen,
+    Funds: FundsListScreen,
   },
   config
 );
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+FundsStack.navigationOptions = {
+  tabBarLabel: 'Funds list',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+    <TabBarIcon focused={focused} name='globe' />
   ),
 };
 
-LinksStack.path = '';
+FundsStack.path = '';
 
-const SettingsStack = createStackNavigator(
+const AddReportStack = createStackNavigator(
   {
-    Settings: SettingsScreen,
+    AddReport: AddReportScreen,
   },
   config
 );
 
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
+AddReportStack.navigationOptions = {
+  tabBarLabel: 'Add Report',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+    <TabBarIcon focused={focused} name='plus-circle' />
   ),
 };
 
-SettingsStack.path = '';
+AddReportStack.path = '';
+
+
+const MyReportsStack = createStackNavigator(
+  {
+   MyReports: MyReportsScreen,
+  },
+  config
+);
+
+MyReportsStack.navigationOptions = {
+  tabBarLabel: 'My reports',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon focused={focused} name='heart' />
+  ),
+};
+
+MyReportsStack.path = '';
+
+
+const ProfileStack = createStackNavigator(
+  {
+   Profile: ProfileScreen,
+  },
+  config
+);
+
+ProfileStack.navigationOptions = {
+  tabBarLabel: 'Profile',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon focused={focused} name='person' />
+  ),
+};
+
+ProfileStack.path = '';
+
+
+
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
-  LinksStack,
-  SettingsStack,
+  FundsStack,
+  AddReportStack,
+  MyReportsStack,
+  ProfileStack
+},
+{
+  tabBarOptions: {
+    activeTintColor: colors.primary,
+    labelStyle: {
+      fontSize: 12,
+    },
+  }
 });
 
 tabNavigator.path = '';

@@ -9,7 +9,6 @@ const StarIcon = (style) => (
 );
 
 class AnimalsList extends Component {  
-
     render() {
         let renderAnimals = this.props.animals.map(item=>(
             <ListItem
@@ -36,7 +35,6 @@ const styles = StyleSheet.create({
     },
 
     text: {
-
         color: colors.primary,
         fontSize: fonts.body
     }
@@ -46,8 +44,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => {
     console.log(state);
     return {
-      animals: state.root.animals,
-     // langs: state.places.langs
+      animals: state.root.animals
     }
   }
   
