@@ -12,13 +12,13 @@ export const colors = {
 };
 
 export const fonts = {
-    h1: 42,
-    h2: 24,
-    h3: 20,
-    body: 16,
-    small: 14,
-    xsmall: 12,
-    xxsmall: 10,
+        h1: 42,
+        h2: 24,
+        h3: 20,
+        body: 16,
+        small: 14,
+        xsmall: 12,
+        xxsmall: 10,
     lineHeightHeading: 1.1,
     lineHeight: 1.2
 };
