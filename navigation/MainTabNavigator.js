@@ -8,6 +8,7 @@ import FundsListScreen from '../screens/FundsList';
 import AddReportScreen from '../screens/AddReportScreen';
 import MyReportsScreen from '../screens/MyReportsScreen';
 import ProfileScreen from '../screens/Profile';
+import ActiveFundScreen from '../screens/ActiveFundScreen';
 import { colors } from '../ui/variables';
 
 
@@ -38,6 +39,7 @@ HomeStack.path = '';
 const FundsStack = createStackNavigator(
   {
     Funds: FundsListScreen,
+    ActiveFund: ActiveFundScreen,
   },
   config
 );
@@ -102,14 +104,12 @@ ProfileStack.navigationOptions = {
 ProfileStack.path = '';
 
 
-
-
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
   FundsStack,
   AddReportStack,
   MyReportsStack,
-  ProfileStack
+  ProfileStack,
 },
 {
   tabBarOptions: {

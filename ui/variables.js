@@ -5,9 +5,15 @@ export const screen = {
     height: Dimensions.get('window').height,
 }
 export const colors = {
-    primary: '#FF2D55',
-    secondary: '#0066FF',
-    grey: '#C2C8CD',
+    primary: '#eb4d4b',
+    secondary: '#4834d4',
+    grey: '#95afc0',
+    lightGrey: '#eef4fb',
+    black: '#333333',
+    green: '#6ab04c',
+    yellow: '#f9ca24',
+    red: '#eb4d4b',
+    info: '#22a6b3'
 
 };
 
@@ -33,3 +39,27 @@ export const gaps = {
     base6x: 48,
     base7x: 56,
 }
+
+export const layout = StyleSheet.create({
+    container: {
+      paddingVertical: gaps.base2x,
+      backgroundColor: '#eef4fb'
+    },
+    hashtags: {
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+    },
+    hashtag: {
+        borderRadius: gaps.min,
+        backgroundColor: colors.info+'30',
+        paddingVertical: gaps.min,
+        paddingHorizontal: gaps.base,
+        marginBottom: gaps.min,
+        marginRight: gaps.min,
+    },
+    hashtagText: {
+        color: colors.info,
+        fontSize: fonts.small
+    },
+  });
