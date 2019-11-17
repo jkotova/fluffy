@@ -1,14 +1,17 @@
 import React, { Component } from '../../node_modules/react';
 import { connect } from '../../node_modules/react-redux';
 import { ImageBackground, ScrollView, StyleSheet, TouchableOpacity, View} from 'react-native';
-import {Avatar, Icon, Text} from 'react-native-ui-kitten';
-import { Ionicons } from '@expo/vector-icons';
+import {Text} from 'react-native-ui-kitten';
 import {gaps, fonts, colors, screen} from '../../ui/variables';
 
 class FundsList extends Component {  
+    openFund = (item) => {
+        this.props.navigation.navigate('ActiveFund', {item: item});
+    } 
+
     render() {
         let renderAnimals = this.props.funds.map(item=>(
-            <TouchableOpacity style={styles.item} key={item.id}> 
+            <TouchableOpacity style={styles.item} key={item.id} onPress={()=>{this.openFund(item)}}> 
                 <View style={styles.itemContent}>
                     <ImageBackground
                     style={styles.image}
