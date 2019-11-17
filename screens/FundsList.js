@@ -8,7 +8,11 @@ import { gaps, layout } from '../ui/variables';
 export default function FundsScreen(props) {
   return (
     <Layout style={layout.container}>
-      <HomeTopNavigation title='Funds list' description='Here you can find list of funds'/>
+      <HomeTopNavigation 
+        title='Funds list' 
+        description='Here you can find list of funds' 
+        navigation={props.navigation} 
+      />
       <FundsList navigation={props.navigation} />
     </Layout>
   );

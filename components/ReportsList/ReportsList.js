@@ -3,7 +3,7 @@ import { connect } from '../../node_modules/react-redux';
 import { ImageBackground, ScrollView, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {Avatar, Icon, Text, ListItem} from 'react-native-ui-kitten';
 import { Ionicons } from '@expo/vector-icons';
-import {gaps, fonts, colors} from '../../ui/variables';
+import {gaps, fonts, colors, layout} from '../../ui/variables';
 
 const StarIcon = (style) => (
     <Icon {...style} name='star'/>
@@ -11,21 +11,44 @@ const StarIcon = (style) => (
 
 class ReportsList extends Component {  
     render() {
-        let renderAnimals = this.props.reports.map(item=>(
-            <TouchableOpacity style={styles.item} key={item.id}> 
+        let renderAnimals = this.props.reports.map(item=>{
+            let renderBottom = (this.props.my) ? (
+                <View style={styles.bottomContainer}>
+                    <View key={item.id} style={[layout.hashtag,
+                    {
+                        paddingHorizontal: gaps.base2x,
+                        paddingVertical: gaps.base,
+                        backgroundColor: (item.status == 'solved') ? colors.green+'50' : (item.status == 'rejected') ? colors.red+'50' : colors.yellow+'50'
+                    }]}><Text style={{
+                        fontWeight: 'bold',
+                        textTransform: 'uppercase',
+                        color: (item.status == 'solved') ? colors.green : (item.status == 'rejected') ? colors.red : colors.yellow
+                        }}>{item.status}</Text></View>
+                </View>
+            ) : (
+                <View style={styles.bottomContainer}>
+                    <Avatar source={{ uri: item.userPhoto }}/>
+                    <View style={styles.authorName}>
+                        <Text>{item.userName}</Text>
+                        <Text appearance="hint">Today: 1:25PM</Text>
+                    </View>
+                </View>
+            )
+            return (
+            <View style={styles.item} key={item.id}> 
                 <ImageBackground
                 style={styles.image}
                 imageStyle={styles.image}
-                source={{uri: 'https://s1.1zoom.me/b5050/75/170810-aleni_1400x1050.jpg'}}
+                source={{uri: item.photos[0]}}
                 />
 
                 <View style={styles.infoContainer}>
-                    <View style={styles.hashtags}>
-                        {item.categories.map(category=>(<View key={category} style={styles.hashtag}><Text>{category}</Text></View>))}
+                    <View style={layout.hashtags}>
+                        {item.categories.map(category=>(<View key={category} style={layout.hashtag}><Text style={layout.hashtagText}>{category}</Text></View>))}
                     </View>
                     <View style={styles.geo}>
-                        <Icon width={26} height={26} fill={colors.grey} name='pin' style={styles.icon} />
-                        <Text style={{color: colors.grey}}>Москва</Text>
+                        <Icon width={18} height={18} fill={colors.grey} name='pin' style={styles.icon} />
+                        <Text style={{color: colors.grey}}>{item.geometry.address}</Text>
                     </View>
                     <Text style={styles.titleLabel} >
                         {item.title}
@@ -35,22 +58,18 @@ class ReportsList extends Component {
                     </Text>
                 </View>
                 <View style={styles.authorContainer}>
-                    <Avatar source={{ uri: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330' }}/>
-                    <View style={styles.authorName}>
-                        <Text>Светлана Беловодская</Text>
-                        <Text appearance="hint">Today: 1:25PM</Text>
-                    </View>
+                    {renderBottom}
                     <View style={styles.icons}>
-                        <Ionicons name="md-thumbs-up" size={26} color={colors.green} />
+                        <Ionicons name="md-thumbs-up" size={26} color={colors.green+'95'} />
                         <Text style={{color: colors.green}}>+10</Text>
                     </View>
                     <View style={styles.icons}>
-                        <Ionicons name="ios-chatbubbles" size={26} color={colors.grey} />
+                        <Ionicons name="ios-chatbubbles" size={26} color={colors.grey+'95'} />
                         <Text style={{color: colors.grey}}>5</Text>
                     </View>
                 </View>
-            </TouchableOpacity>
-        ))
+            </View>
+        )})
         return (
             <View>
                 <ScrollView contentContainerStyle={styles.container}>
@@ -64,13 +83,13 @@ class ReportsList extends Component {
 const styles = StyleSheet.create({
     container: {
         paddingHorizontal: gaps.base2x,
-        paddingVertical: gaps.base4x,
+        paddingVertical: gaps.base2x,
     },
 
     item: {
         backgroundColor: 'white',
         borderRadius: gaps.base2x,
-        marginBottom: gaps.base4x
+        marginBottom: gaps.base2x
     },
 
     infoContainer: {
@@ -110,7 +129,6 @@ const styles = StyleSheet.create({
     authorName: {
         marginLeft: gaps.base2x,
         display: 'flex',
-        flex: 1,
         alignSelf: 'flex-start',
     },
 
@@ -125,26 +143,18 @@ const styles = StyleSheet.create({
         marginRight: gaps.base,
     },
 
-    hashtags: {
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-    },
-
-    hashtag: {
-        borderRadius: gaps.base,
-        backgroundColor: colors.secondary+'50',
-        paddingVertical: gaps.min,
-        paddingHorizontal: gaps.base,
-        marginBottom: gaps.base,
-        marginRight: gaps.base,
-    },
-
     geo: {
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        marginBottom: gaps.base
+        marginVertical: gaps.base
+    },
+
+    bottomContainer: {
+        display: 'flex',
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
     }
 
 

@@ -36,11 +36,6 @@ HomeStack.navigationOptions = {
 
 HomeStack.path = '';
 
-
-
-
-
-
 const FundsStack = createStackNavigator(
   {
     Funds: FundsListScreen,

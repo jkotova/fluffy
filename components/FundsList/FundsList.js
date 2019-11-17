@@ -1,8 +1,8 @@
 import React, { Component } from '../../node_modules/react';
 import { connect } from '../../node_modules/react-redux';
-import { ImageBackground, ScrollView, StyleSheet, TouchableOpacity, View} from 'react-native';
+import { Image, ScrollView, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {Text} from 'react-native-ui-kitten';
-import {gaps, fonts, colors, screen} from '../../ui/variables';
+import {gaps, fonts, colors, layout, screen} from '../../ui/variables';
 
 class FundsList extends Component {  
     openFund = (item) => {
@@ -13,9 +13,10 @@ class FundsList extends Component {
         let renderAnimals = this.props.funds.map(item=>(
             <TouchableOpacity style={styles.item} key={item.id} onPress={()=>{this.openFund(item)}}> 
                 <View style={styles.itemContent}>
-                    <ImageBackground
+                    <Image
+                    resizeMode = 'contain'
                     style={styles.image}
-                    imageStyle={styles.image}
+                    width={110}
                     source={{uri: item.image}}
                     />
 
@@ -23,8 +24,8 @@ class FundsList extends Component {
                         <Text style={styles.titleLabel}>
                             {item.title}
                         </Text>
-                        <View style={styles.hashtags}>
-                            {item.categories.map(category=>(<View key={category} style={styles.hashtag}><Text>{category}</Text></View>))}
+                        <View style={layout.hashtags}>
+                            {item.categories.map(category=>(<View key={category} style={layout.hashtag}><Text style={layout.hashtagText}>{category}</Text></View>))}
                         </View>
                     </View>
                 </View>
@@ -39,11 +40,9 @@ class FundsList extends Component {
             </TouchableOpacity>
         ))
         return (
-            <View>
-                <ScrollView contentContainerStyle={styles.container}>
-                    {renderAnimals}
-                </ScrollView>
-            </View>
+            <ScrollView contentContainerStyle={styles.container}>
+                {renderAnimals}
+            </ScrollView>
         );
     }
 }
@@ -51,7 +50,8 @@ class FundsList extends Component {
 const styles = StyleSheet.create({
     container: {
         paddingHorizontal: gaps.base2x,
-        paddingVertical: gaps.base4x,
+        paddingVertical: gaps.base2x,
+        marginBottom: gaps.base7x
     },
 
     item: {
@@ -72,8 +72,6 @@ const styles = StyleSheet.create({
     },
 
     image: {
-        width: 80,
-        height: 80,
         borderRadius: gaps.base 
     },
 
@@ -120,21 +118,6 @@ const styles = StyleSheet.create({
         marginRight: gaps.base,
     },
 
-    hashtags: {
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-    },
-
-    hashtag: {
-        borderRadius: gaps.min,
-        backgroundColor: colors.secondary+'50',
-        paddingVertical: gaps.min/2,
-        paddingHorizontal: gaps.base,
-        marginBottom: gaps.min,
-        marginRight: gaps.min,
-        fontSize: fonts.small
-    },
 
     geo: {
         display: 'flex',
