@@ -1,4 +1,4 @@
-![Image of Floof Defence](https://repository-images.githubusercontent.com/221928767/583a2880-09f7-11ea-8e30-33dad088290b)
+![Image of Floof Defence](https://raw.githubusercontent.com/jkotova/fluffy/master/assets/images/repofloof.png)
 
 # ZooHackathon Moscow 2019
 Multi-channel customizable incident reporting system for nature conservation organization.
